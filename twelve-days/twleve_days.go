@@ -1,17 +1,23 @@
 /*
 Exercism twleve days track
 
-Verse
-  returns a string for the corrosponding verse in 'twleve days of christmas'
+Contains:
 
-  param: verse int
-  return: s string
+  Verse
+  Song
 */
 
 package twelve
 
 
 func Verse(verse int) string{
+  /*
+  Verse
+    returns a string for the corrosponding verse in 'twleve days of christmas'
+
+    param: verse int
+    return: s string
+  */
 
   s := ""
   if verse == 1 {
@@ -43,6 +49,12 @@ func Verse(verse int) string{
 }
 
 func Song() string{
+  /*
+  Verse
+    returns a string of the whole song 'twleve days of christmas'
+
+    return: s string
+  */
   expected := ""
 
   for i := 1; i <= 12; i++ {
