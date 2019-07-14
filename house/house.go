@@ -103,14 +103,14 @@ verses = strings.Split(song, "\n\n")
 )
 
 /*
-Returns the corresponding verse from the song This is the house that Jack Built
+Verse returns the corresponding verse from the song This is the house that Jack Built
 */
 func Verse(i int) string{
   return verses[i-1]
 }
 
 /*
-Returns the song 'This is the house that Jack built'
+Song returns the song 'This is the house that Jack built'
 */
 func Song() string{
   expected := ""
