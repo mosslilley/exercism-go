@@ -1,6 +1,6 @@
 /*
-
- */
+Creates a bank account type which supports concurrency
+*/
 
 package account
 
@@ -8,7 +8,7 @@ import (
 	"sync"
 )
 
-// Account does stuff
+// Account type which holds the amount
 type Account struct {
 	sync.Mutex
 	amt  int64
@@ -24,7 +24,7 @@ func Open(initialDeposit int64) *Account {
 	return nil
 }
 
-// Close closes a bank account
+// Close a bank account
 func (a *Account) Close() (payout int64, ok bool) {
 	a.Lock()
 	defer a.Unlock()
@@ -37,7 +37,7 @@ func (a *Account) Close() (payout int64, ok bool) {
 	return 0, false
 }
 
-// Balance returns the balance of a bank account
+// Balance returns the balance of a bank account as long as it's open
 func (a *Account) Balance() (balance int64, ok bool) {
 	if a.open {
 		return a.amt, true
@@ -45,7 +45,7 @@ func (a *Account) Balance() (balance int64, ok bool) {
 	return a.amt, false
 }
 
-//Deposit deposits the amount into the account
+//Deposit deposits the amount into the account as long as the balance doesn't go below 0
 func (a *Account) Deposit(amount int64) (newBalance int64, ok bool) {
 	a.Lock()
 	defer a.Unlock()
